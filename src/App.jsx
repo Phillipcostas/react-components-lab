@@ -1,6 +1,9 @@
 import './Weather.css';
 
-const App = (props) => {
+import WeatherForecast from './Components/WeatherForecasts/Weather.jsx';
+
+
+const App = () => {
   const WeatherForecasts = [
     {
       day: 'Mon',
@@ -40,24 +43,41 @@ const App = (props) => {
   ];
   
   return (
-    
-<>
-<weatherForecasts day="day of the week"/>
-<div className="weather">
-  <h2>The day of the week is:{props.day}</h2>
-  <img src="" alt="" />
-  <p><span>conditions: </span>current weather conditions</p>
-  <p><span>time: </span>time of day</p>
-</div>
+    <>
+   
 
-  <h1>Local Weather</h1>
   <section>
-    // Weather data here
-  </section>
+    
+  <div className="weather">
+ 
+     
+
+        {WeatherForecasts.map((Weather) => (
+          <WeatherForecast
+            key={Weather.id}
+            Weather={Weather}
+          />
+        ))}
+      <h2>  Day of the Week</h2>
+      <img src="" alt="" />
+
+      <p><span>conditions:</span>current weather conditions</p>
+
+      <p><span>time: </span>time of day</p>
+
+      </div>
+
+      </section>
+
+
+
 </>
 
+)}
 
-  );
-}
+        
 
-export default App
+export default App;
+
+
+
